@@ -1,4 +1,4 @@
-package com.xz.third;
+package com.xz.netty.zl.third;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

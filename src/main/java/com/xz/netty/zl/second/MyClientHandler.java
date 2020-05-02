@@ -1,4 +1,4 @@
-package com.xz.second;
+package com.xz.netty.zl.second;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

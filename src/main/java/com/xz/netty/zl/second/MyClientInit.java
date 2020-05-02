@@ -1,4 +1,4 @@
-package com.xz.second;
+package com.xz.netty.zl.second;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -11,12 +11,12 @@ import io.netty.util.CharsetUtil;
 
 /**
  * @Package: com.xz.second
- * @ClassName: MyServerInit
+ * @ClassName: MyClientInit
  * @Author: xz
- * @Date: 2020/4/28 16:43
+ * @Date: 2020/4/28 16:58
  * @Version: 1.0
  */
-public class MyServerInit extends ChannelInitializer<SocketChannel> {
+public class MyClientInit extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) {
         ChannelPipeline pipeline = ch.pipeline();
@@ -24,6 +24,6 @@ public class MyServerInit extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new LengthFieldPrepender(4));
         pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-        pipeline.addLast(new MyServerHandler());
+        pipeline.addLast(new MyClientHandler());
     }
 }

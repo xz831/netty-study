@@ -1,4 +1,4 @@
-package com.xz.second;
+package com.xz.netty.zl.second;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

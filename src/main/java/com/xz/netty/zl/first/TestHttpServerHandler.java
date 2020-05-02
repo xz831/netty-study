@@ -1,4 +1,4 @@
-package com.xz.first;
+package com.xz.netty.zl.first;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
