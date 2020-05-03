@@ -18,11 +18,11 @@ public class BIOClient {
     public static final String lineSeparator = System.lineSeparator();
 
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("127.0.0.1",6666);
+        Socket socket = new Socket("127.0.0.1", 6666);
         PrintStream printStream = new PrintStream(socket.getOutputStream());
-        for(;;){
+        for (; ; ) {
             String s = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            printStream.println(s.replace(lineSeparator,""));
+            printStream.println(s.replace(lineSeparator, ""));
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.xz.netty.hsp.bio;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -27,26 +26,27 @@ public class BIOServer {
                 Executors.defaultThreadFactory(), new ThreadPoolExecutor.DiscardPolicy());
         ServerSocket serverSocket = new ServerSocket(6666);
         System.out.println("服务器启动");
-        for(;;){
+        for (; ; ) {
             System.out.println("等待连接");
             final Socket accept = serverSocket.accept();
             System.out.println("连接到一个客户端");
-            threadPoolExecutor.execute(()->{
+            threadPoolExecutor.execute(() -> {
                 byte[] bytes = new byte[1024];
                 try {
                     InputStream inputStream = accept.getInputStream();
-                    while(true){
+                    while (true) {
                         System.out.println("等待交互");
                         int index = inputStream.read(bytes);
-                        if(index != -1){
-                            System.out.println(new String(bytes,0,index));
-                        }else {
+                        if (index != -1) {
+                            System.out.println(new String(bytes, "GBK"));
+                            bytes = new byte[1024];
+                        } else {
                             break;
                         }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     try {
                         accept.close();
                     } catch (IOException e) {
