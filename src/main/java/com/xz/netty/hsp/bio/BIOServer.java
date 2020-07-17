@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class BIOServer {
 
     public static void main(String[] args) throws IOException {
+        System.out.println(Arrays.toString(args));
         //核心5，最大5，存活时长不限，阻塞队列5，默认工厂，抛弃策略
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 5,
                 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(5),

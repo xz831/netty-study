@@ -1,0 +1,23 @@
+package com.xz.netty.hsp.iohandler;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.ByteToMessageDecoder;
+
+import java.util.List;
+
+/**
+ * @Package: com.xz.netty.hsp.iohandler
+ * @ClassName: ByteToMessageInboundHandler
+ * @Author: xz
+ * @Date: 2020/7/17 17:22
+ * @Version: 1.0
+ */
+public class ByteToMessageInboundHandler extends ByteToMessageDecoder {
+    @Override
+    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        if(in.readableBytes() >= 8){
+            out.add(in.readLong());
+        }
+    }
+}
