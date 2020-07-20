@@ -11,9 +11,9 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @Date: 2020/7/17 17:24
  * @Version: 1.0
  */
-public class MessageToByteOutBoundHandler extends MessageToByteEncoder {
+public class MessageToByteOutBoundHandler extends MessageToByteEncoder<Long> {
     @Override
-    protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
-        out.writeLong((Long) msg);
+    protected void encode(ChannelHandlerContext ctx, Long msg, ByteBuf out) throws Exception {
+        out.writeLong(msg);
     }
 }
